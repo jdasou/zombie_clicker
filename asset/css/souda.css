@@ -42,6 +42,7 @@ html:focus-within {
 
 html,
 body {
+  background-image: url("../media/baground.jpeg");
   
   height: 100%;
   text-rendering: optimizeSpeed;
