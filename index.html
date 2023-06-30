@@ -9,10 +9,64 @@
     <link rel="stylesheet" href="asset/css/root.css">
     <title>zombie-cliker</title>
 </head>
-<body>
+<body class="h100">
+<nav>
+    <menu id="menu" class="flex center p-t2 txt-2 efat opac-5 ">
+        <li>nombre de zombies tués : <span id="zombiecompte">0</span></li>
+    </menu>
+</nav>
+<main class="grid g-column3 ">
 
+    <div id="armée" class="txt-center txt-1  opac-5 ">
 
+        <h2 class="p-3">ARMÉE</h2>
 
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">infanterie : <span id="infanteriecompte">0</span> </h3>
+            <button id="infanterie" onclick="utile(0)" class="button"><img width="70" src="asset/media/infantrie.png" alt=""></button><p>prix : <span id="infanterie_prix">5</span></p>
+        </div>
 
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">chien : <span id="chiencompte">0</span> </h3>
+            <button id="chien" onclick="utile(1)" class="button"><img width="70" src="asset/media/chien.png" alt=""></button><p>prix : <span id="chien_prix">100</span></p>
+
+        </div>
+
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">predator : <span id="predatorcompte">0</span> </h3>
+            <button id="predator" onclick="utile(2)" class="button"><img width="70" src="asset/media/alien.png" alt=""></button><p>prix : <span id="predator_prix">500</span></p>
+        </div>
+
+    </div>
+
+    <div>
+        <button id="zombie" onclick="mortZombie()" class="button flex wrap center">
+            <img width="500" src="asset/media/zombie.png" alt="">
+        </button>
+    </div>
+
+    <div id="engin" class="txt-center txt-1  opac-5 ">
+
+        <h2 class="p-3">engin</h2>
+
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">char : <span id="charcompte">0</span></h3>
+            <button id="char" onclick="utile(3)" class="button"><img width="100" src="asset/media/char.png" alt=""></button><p>prix : <span id="char_prix">1000</span></p>
+        </div>
+
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">annihilateur : <span id="annihilateurcompte">0</span></h3>
+            <button id="annihilateur" onclick="utile(4)" class="button"><img width="100" src="asset/media/helico.png" alt=""></button><p>prix : <span id="annihilateur_prix">10000</span></p>
+        </div>
+
+        <div class="flex wrap center p-b2">
+            <h3 class="w100">mother-bombe : <span id="motherBombecompte">0</span></h3>
+            <button id="mother-bombe" onclick="utile(5)" class="button"><img width="100" src="asset/media/nuke.png" alt=""></button><p>prix : <span id="motherBombe_prix">1000000</span></p>
+        </div>
+
+    </div>
+</main>
+
+<script src="asset/js/script.js"></script>
 </body>
 </html>

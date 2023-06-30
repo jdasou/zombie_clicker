@@ -15,7 +15,8 @@
 }
 
 ul[role="list"],
-ol[role=list]{
+ol[role=list],
+li{
   list-style-type: none;
 }
 @font-face {
@@ -43,7 +44,7 @@ html:focus-within {
 html,
 body {
   background-image: url("../media/baground.jpeg");
-  
+  overflow: hidden;
   height: 100%;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -164,6 +165,9 @@ svg {
 .b-color6{color:var(--color6);}
 .b-color7{color:var(--color7);}
 .b-color8{color:var(--color8);}
+.opac-5{
+  background-color: rgba(0,0,0,0.5);
+}
 
 
 /*?         Text Size         ?*/
@@ -252,3 +256,27 @@ p {font-size: 0.8rem;}
 .pointer{cursor:pointer;}
 
 /*************************************/
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background:none;
+  border: none;
+}
+
+.button:active {
+  transform: translateY(10px);
+}
+#armée{
+  height: 100%;
+}
+.bordure{
+  border:  2px dashed grey ;
+}
+button.completed {
+  display: none;
+}
