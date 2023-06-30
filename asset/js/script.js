@@ -101,6 +101,7 @@ function compte() {
 var autoclickInterval = 900;
 
 
+
 function autoclick() {
 
     var infanterieElement = document.getElementById("zombie");
