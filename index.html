@@ -9,17 +9,23 @@
     <link rel="stylesheet" href="asset/css/root.css">
     <title>zombie-cliker</title>
 </head>
-<body class="h100">
-<nav>
-    <menu id="menu" class="flex center p-t2 txt-2 efat opac-5 ">
-        <li>nombre de zombies tués : <span id="zombiecompte">0</span></li>
+<body class="h100 opac message  ">
+    <video id="background-video" autoplay loop muted>
+
+        <source src="asset/media/lune.mp4" type="video/mp4">
+
+        </video>
+
+<nav class="opac">
+    <menu id="menu" class="flex center p-t1 txt-2 efat ">
+        <li class="font xfat">nombre de zombies tués : <span id="zombiecompte">0</span></li>
     </menu>
 </nav>
-<main class="grid g-column3 ">
+<main class="grid g-column3 opac ">
 
-    <div id="armée" class="txt-center txt-1  opac-5 ">
+    <div id="armée" class="txt-center    ">
 
-        <h2 class="p-3">ARMÉE</h2>
+        <h2 class="m-b1">ARMEE</h2>
 
         <div class="flex wrap center p-b2">
             <h3 class="w100">infanterie : <span id="infanteriecompte">0</span> </h3>
@@ -42,12 +48,13 @@
     <div>
         <button id="zombie" onclick="mortZombie()" class="button flex wrap center">
             <img width="500" src="asset/media/zombie.png" alt="">
+
         </button>
     </div>
 
-    <div id="engin" class="txt-center txt-1  opac-5 ">
+    <div id="engin" class="txt-center   ">
 
-        <h2 class="p-3">engin</h2>
+        <h2 class=" m-b1">engin</h2>
 
         <div class="flex wrap center p-b2">
             <h3 class="w100">char : <span id="charcompte">0</span></h3>
@@ -59,14 +66,17 @@
             <button id="annihilateur" onclick="utile(4)" class="button"><img width="100" src="asset/media/helico.png" alt=""></button><p>prix : <span id="annihilateur_prix">10000</span></p>
         </div>
 
-        <div class="flex wrap center p-b2">
+        <div class="flex wrap center ">
             <h3 class="w100">mother-bombe : <span id="motherBombecompte">0</span></h3>
             <button id="mother-bombe" onclick="utile(5)" class="button"><img width="100" src="asset/media/nuke.png" alt=""></button><p>prix : <span id="motherBombe_prix">1000000</span></p>
         </div>
 
     </div>
 </main>
+    <div >
+<p class=" txt-center xfat w100 message" id="alerte_danger"></p>
+    </div>
 
-<script src="asset/js/script.js"></script>
 </body>
 </html>
+<script src="asset/js/script.js"></script>

@@ -20,21 +20,26 @@ li{
   list-style-type: none;
 }
 @font-face {
-  font-family: Poppins;
-  src: url(../font/poppins-light-webfont.woff2);
-  font-weight: 300;
+  font-family: rubik;
+  src: url(../font/Rubik-Goo-Regular.ttf);
+  font-weight: 100;
 }
 @font-face {
-  font-family: Poppins;
-  src: url(../font/poppins-regular-webfont.woff2);
+  font-family: squirk;
+  src: url(../font/vtksexpert.ttf);
+  font-weight: 100;
+}
+/**@font-face {
+  font-family: dusty;
+  src: url(../font/DustyHotels.ttf);
   font-weight: 500;
 }
 @font-face {
-  font-family: Poppins;
-  src: url(../font/poppins-bold-webfont.woff2);
+  font-family: dusty;
+  src: url(../font/DustyHotels.ttf);
   font-weight: 700;
 }
-
+**/
 
 
 html:focus-within {
@@ -42,16 +47,12 @@ html:focus-within {
 }
 
 html,
-body {
-  background-image: url("../media/baground.jpeg");
-  overflow: hidden;
-  height: 100%;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
+
 
 body {
-  font-family: Poppins, sans-serif;
+  background-color: rgba(0,0,0,0.5);
+
+
   font-size: 1rem;
 }
 
@@ -165,8 +166,8 @@ svg {
 .b-color6{color:var(--color6);}
 .b-color7{color:var(--color7);}
 .b-color8{color:var(--color8);}
-.opac-5{
-  background-color: rgba(0,0,0,0.5);
+.opac{
+
 }
 
 
@@ -185,7 +186,8 @@ p {font-size: 0.8rem;}
 .little{font-size:0.6rem}
 .normal{font-size:1rem}
 .fat{font-size: 1.5rem}
-.efat{font-size: 2rem}
+.xfat{font-size: 3rem}
+.xxfat{font-size: 4rem}
 .maj{text-transform: uppercase;}
 .minu{text-transform:lowercase;}
 
@@ -271,6 +273,8 @@ p {font-size: 0.8rem;}
 .button:active {
   transform: translateY(10px);
 }
+
+
 #armée{
   height: 100%;
 }
@@ -279,4 +283,29 @@ p {font-size: 0.8rem;}
 }
 button.completed {
   display: none;
+}
+#background-video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  }
+.font{
+  font-family: rubik, sans-serif;
+  color: #850606;
+}
+.message{
+  font-family: squirk , sans-serif;
+  color: #FFFFDF;
+
+}
+
+#alert{
+  color: white;
+  /* Ajoutez d'autres styles CSS ici si nécessaire */
 }
