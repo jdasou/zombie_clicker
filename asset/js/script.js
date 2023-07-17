@@ -118,11 +118,7 @@ function compte() {
 
 
 function autoclick() {
-    let Element = document.getElementById("zombie");
-    if (Element) {
-        Element.click();
-
-    }
+    mortZombie()
 }
 
 document.getElementById("infanterie").addEventListener("click", function (id) {
@@ -137,7 +133,7 @@ document.getElementById("infanterie").addEventListener("click", function (id) {
 
 
 function getRandomTime() {
-    return Math.floor(Math.random() * (120000 - 30000) + 30000);
+    return Math.floor(Math.random() * (10000 - 10000) + 10000);
 }
 
 
@@ -162,7 +158,8 @@ function applyMalus() {
     let video = document.getElementById("background-video");
     video.src = "asset/media/attaque_zombie.mp4";
     let music = document.getElementById("music");
-    music.src = "asset/media/attaque_zombie.mp4";
+    music.src = "asset/media/son.mp3";
+     music.play();
 
 
     const messageElement = document.getElementById("alerte_danger");
@@ -173,6 +170,9 @@ function applyMalus() {
     setTimeout(function () {
 
         video.src = originalVideoSrc;
+        music.src = music.stop() ;
+
+
 
         cacherMessageMalus();
 
