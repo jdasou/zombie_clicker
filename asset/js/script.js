@@ -123,8 +123,6 @@ function autoclick() {
         Element.click();
 
     }
-
-
 }
 
 document.getElementById("infanterie").addEventListener("click", function (id) {
@@ -163,6 +161,8 @@ function applyMalus() {
     // Changer la vidéo de fond
     let video = document.getElementById("background-video");
     video.src = "asset/media/attaque_zombie.mp4";
+    let music = document.getElementById("music");
+    music.src = "asset/media/attaque_zombie.mp4";
 
 
     const messageElement = document.getElementById("alerte_danger");

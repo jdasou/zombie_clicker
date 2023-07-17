@@ -332,3 +332,12 @@ button.completed {
     opacity: 0;
   }
 }
+audio {
+  display: block;
+
+}
+
+.lecture {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
