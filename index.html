@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="asset/css/root.css">
     <title>zombie-cliker</title>
 </head>
-<body class="h100 opac message  ">
+<body id="body" class="h100 opac message  ">
     <video id="background-video" autoplay loop muted>
 
         <source src="asset/media/lune.mp4" type="video/mp4">
@@ -50,6 +50,8 @@
             <img width="500" src="asset/media/zombie.png" alt="">
 
         </button>
+        <div id="imageContainer"></div>
+
     </div>
 
     <div id="engin" class="txt-center   ">
@@ -76,7 +78,7 @@
     <div >
 <p class=" txt-center xfat w100 message" id="alerte_danger"></p>
     </div>
-
+    <audio id="music"></audio>
 </body>
 </html>
 <script src="asset/js/script.js"></script>

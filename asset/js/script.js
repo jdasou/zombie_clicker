@@ -1,27 +1,29 @@
 let zombie = 0;
 
 let items = [{
-    name: 'infanterie', last_name: 'infanterie_prix', nb: 0, cost: 5, dps: 1
+    name: 'infanterie', last_name: 'infanterie_prix', nb: 0, cost: 5, dps: 1,
 }, {
-    name: 'chien', last_name: 'chien_prix', nb: 0, cost: 100, dps: 5
+    name: 'chien', last_name: 'chien_prix', nb: 0, cost: 100, dps: 5,
 }, {
-    name: 'predator', last_name: 'predator_prix', nb: 0, cost: 500, dps: 7
+    name: 'predator', last_name: 'predator_prix', nb: 0, cost: 500, dps: 7,
 }, {
-    name: 'char', last_name: 'char_prix', nb: 0, cost: 1000, dps: 15
+    name: 'char', last_name: 'char_prix', nb: 0, cost: 1000, dps: 15,
 }, {
-    name: 'annihilateur', last_name: 'annihilateur_prix', nb: 0, cost: 10000, dps: 18
+    name: 'annihilateur', last_name: 'annihilateur_prix', nb: 0, cost: 10000, dps: 18 ,
 }, {
-    name: 'motherBombe', last_name: 'motherBombe_prix', nb: 0, cost: 1000000, dps: 23
+    name: 'motherBombe', last_name: 'motherBombe_prix', nb: 0, cost: 1000000, dps: 23 ,
 }];
 
-// Variables pour les compteurs
+
 let malusMessage = "Une horde de zombies vous attaque !";
-let currentIndex = 0;
+
 let malusActive = false;
 let malusTimer;
-const originalVideoSrc = "asset/media/lune.mp4"; // Remplacez par le chemin de votre vidéo d'origine
+const originalVideoSrc = "asset/media/lune.mp4";
+let autoclickEnabled = false;
+let autoclickInterval = 1000;
 
-// JavaScript
+
 function afficherMessages() {
     const messages = [
         "Restez calmes et concentrés, ne paniquons pas.",
@@ -54,12 +56,12 @@ function afficherMessages() {
         }
     }
 
-    afficherMessageAleatoire(); // Afficher un premier message immédiatement
+    afficherMessageAleatoire();
 
-    setInterval(afficherMessageAleatoire, 10000); // Afficher un message toutes les 10 secondes
+    setInterval(afficherMessageAleatoire, 10000);
 }
 
-// Appeler la fonction pour commencer l'affichage des messages
+
 afficherMessages();
 
 function utile(index) {
@@ -72,14 +74,12 @@ function utile(index) {
     prix();
     compte();
 }
-
 function prix() {
     for (let j = 0; j < items.length; j++) {
         const item = items[j];
         document.getElementById(item.last_name).textContent = item.cost;
     }
 }
-
 function updateZombie() {
     for (let util of items) {
         zombie += util.nb * util.dps;
@@ -91,6 +91,20 @@ function mortZombie() {
     updateZombie();
     compte();
     prix();
+    hache()
+
+}
+
+function hache(){
+    const imageContainer = document.getElementById('imageContainer');
+    const imageItem = document.createElement('img');
+    imageItem.setAttribute('src', 'asset/media/hache.png'); // Remplacez 'chemin/vers/votre/image.png' par le chemin de votre image
+    imageItem.classList.add('image-item');
+    imageContainer.appendChild(imageItem);
+
+    setTimeout(() => {
+        imageContainer.removeChild(imageItem);
+    }, 4000);
 }
 
 function compte() {
@@ -102,15 +116,14 @@ function compte() {
     }
 }
 
-let autoclickEnabled = false;
-let autoclickInterval = 1500;
 
-// Fonction autoclick
 function autoclick() {
-    let infanterieElement = document.getElementById("zombie");
-    if (infanterieElement) {
-        infanterieElement.click();
+    let Element = document.getElementById("zombie");
+    if (Element) {
+        Element.click();
+
     }
+
 }
 
 document.getElementById("infanterie").addEventListener("click", function (id) {
@@ -123,61 +136,97 @@ document.getElementById("infanterie").addEventListener("click", function (id) {
     }
 });
 
-// Fonction pour générer un nombre aléatoire entre 30 secondes et 3 minutes en millisecondes
+
 function getRandomTime() {
     return Math.floor(Math.random() * (120000 - 30000) + 30000);
 }
 
-// Fonction pour cacher le message du malus
+
 function cacherMessageMalus() {
     const messageElement = document.getElementById("alerte_danger");
     messageElement.textContent = "";
     messageElement.classList.add('message');
     messageElement.classList.remove('font');
-    messageElement.style.color = ""; // Réinitialiser la couleur du texte (pour revenir au style par défaut)
+    messageElement.style.color = "";
 }
 
-// Fonction pour appliquer le malus
+
 function applyMalus() {
     malusActive = true;
 
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
-        item.nb = Math.floor(item.nb / 2); // Réinitialiser à la moitié du nombre actuel d'unités
+        item.nb = Math.floor(item.nb / 2);
     }
 
     // Changer la vidéo de fond
     let video = document.getElementById("background-video");
-    video.src = "asset/media/attaque_zombie.mp4"; // Remplacez "chemin/vers/la/nouvelle_video.mp4" par le chemin de votre nouvelle vidéo de fond
+    video.src = "asset/media/attaque_zombie.mp4";
 
-    // Afficher le message de malus
+
     const messageElement = document.getElementById("alerte_danger");
     messageElement.textContent = malusMessage;
     messageElement.classList.add('font');
-    messageElement.style.color = "red"; // Définir la couleur du texte en rouge
+    messageElement.style.color = "red";
 
     setTimeout(function () {
-        // Réinitialiser la vidéo de fond à la vidéo d'origine
+
         video.src = originalVideoSrc;
 
-        // Cacher le message du malus
         cacherMessageMalus();
 
-        malusActive = false; // Le malus est terminé
-        scheduleMalus(); // Planifier le prochain malus
-    }, 10000 ) // 10000 ms = 10 secondes
+        malusActive = false;
+        scheduleMalus();
+    }, 10000 )
 
-    clearInterval(malusTimer); // Arrêter le timer actuel
+    clearInterval(malusTimer);
 }
 
-// Fonction pour planifier le prochain malus
+let songs = {
+    "zombie": "asset/media/zombie.mp3",
+    "chien": "asset/media/chien.wav",
+    "arme": "asset/media/arme.mp3",
+    "predator": "asset/media/predator.wav",
+    "char": "asset/media/char.mp3",
+    "helico": "asset/media/helico.wav",
+    "nuke": "asset/media/nuke.mp3",
+
+    // Ajoutez les autres correspondances bouton-chanson ici
+};
+
+function song(index) {
+    let audioElement = document.getElementById('music');
+    audioElement.src = index;
+    audioElement.play();
+    setTimeout(function() {
+        audioElement.pause();
+         // Réinitialise la lecture au début de la chanson
+    }, 10000); // Arrête la musique après 5 secondes (5000 millisecondes)
+}
+
+document.getElementById('zombie').addEventListener('click', function() {
+    song(songs["zombie"]);
+});
+
+document.getElementById('infanterie').addEventListener('click', function() {
+    song(songs["arme"]);
+});
+    document.getElementById('chien').addEventListener('click', function() {
+    song(songs["chien"]);
+});document.getElementById('predator').addEventListener('click', function() {
+    song(songs["predator"]);
+});document.getElementById('char').addEventListener('click', function() {
+    song(songs["char"]);
+});document.getElementById('annihilateur').addEventListener('click', function() {
+    song(songs["helico"]);
+});document.getElementById('mother-bombe').addEventListener('click', function() {
+    song(songs["nuke"]);
+});
 function scheduleMalus() {
     const malusTime = getRandomTime();
     malusTimer = setTimeout(applyMalus, malusTime);
 }
-
 let video = document.getElementById("background-video");
 video.playbackRate = 0.8;
 
-// Appel initial pour planifier le premier malus
 scheduleMalus();
