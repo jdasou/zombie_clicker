@@ -124,6 +124,7 @@ function autoclick() {
 
     }
 
+
 }
 
 document.getElementById("infanterie").addEventListener("click", function (id) {
