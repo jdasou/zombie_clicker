@@ -9,9 +9,9 @@ let items = [{
 }, {
     name: 'char', last_name: 'char_prix', nb: 0, cost: 1000, dps: 15,
 }, {
-    name: 'annihilateur', last_name: 'annihilateur_prix', nb: 0, cost: 10000, dps: 18 ,
+    name: 'annihilateur', last_name: 'annihilateur_prix', nb: 0, cost: 10000, dps: 18,
 }, {
-    name: 'motherBombe', last_name: 'motherBombe_prix', nb: 0, cost: 1000000, dps: 23 ,
+    name: 'motherBombe', last_name: 'motherBombe_prix', nb: 0, cost: 1000000, dps: 23,
 }];
 
 
@@ -74,12 +74,14 @@ function utile(index) {
     prix();
     compte();
 }
+
 function prix() {
     for (let j = 0; j < items.length; j++) {
         const item = items[j];
         document.getElementById(item.last_name).textContent = item.cost;
     }
 }
+
 function updateZombie() {
     for (let util of items) {
         zombie += util.nb * util.dps;
@@ -95,7 +97,7 @@ function mortZombie() {
 
 }
 
-function hache(){
+function hache() {
     const imageContainer = document.getElementById('imageContainer');
     const imageItem = document.createElement('img');
     imageItem.setAttribute('src', 'asset/media/hache.png'); // Remplacez 'chemin/vers/votre/image.png' par le chemin de votre image
@@ -159,7 +161,7 @@ function applyMalus() {
     video.src = "asset/media/attaque_zombie.mp4";
     let music = document.getElementById("music");
     music.src = "asset/media/son.mp3";
-     music.play();
+    music.play();
 
 
     const messageElement = document.getElementById("alerte_danger");
@@ -170,15 +172,14 @@ function applyMalus() {
     setTimeout(function () {
 
         video.src = originalVideoSrc;
-        music.src = music.stop() ;
-
+        music.src = music.stop();
 
 
         cacherMessageMalus();
 
         malusActive = false;
         scheduleMalus();
-    }, 10000 )
+    }, 10000)
 
     clearInterval(malusTimer);
 }
@@ -199,34 +200,40 @@ function song(index) {
     let audioElement = document.getElementById('music');
     audioElement.src = index;
     audioElement.play();
-    setTimeout(function() {
+    setTimeout(function () {
         audioElement.pause();
-         // Réinitialise la lecture au début de la chanson
+        // Réinitialise la lecture au début de la chanson
     }, 10000); // Arrête la musique après 5 secondes (5000 millisecondes)
 }
 
-document.getElementById('zombie').addEventListener('click', function() {
+document.getElementById('zombie').addEventListener('click', function () {
     song(songs["zombie"]);
 });
 
-document.getElementById('infanterie').addEventListener('click', function() {
+document.getElementById('infanterie').addEventListener('click', function () {
     song(songs["arme"]);
 });
-    document.getElementById('chien').addEventListener('click', function() {
+document.getElementById('chien').addEventListener('click', function () {
     song(songs["chien"]);
-});document.getElementById('predator').addEventListener('click', function() {
+});
+document.getElementById('predator').addEventListener('click', function () {
     song(songs["predator"]);
-});document.getElementById('char').addEventListener('click', function() {
+});
+document.getElementById('char').addEventListener('click', function () {
     song(songs["char"]);
-});document.getElementById('annihilateur').addEventListener('click', function() {
+});
+document.getElementById('annihilateur').addEventListener('click', function () {
     song(songs["helico"]);
-});document.getElementById('mother-bombe').addEventListener('click', function() {
+});
+document.getElementById('mother-bombe').addEventListener('click', function () {
     song(songs["nuke"]);
 });
+
 function scheduleMalus() {
     const malusTime = getRandomTime();
     malusTimer = setTimeout(applyMalus, malusTime);
 }
+
 let video = document.getElementById("background-video");
 video.playbackRate = 0.8;
 
